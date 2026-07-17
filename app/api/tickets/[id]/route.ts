@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import prisma from "@/lib/prisma";
 import { verifyToken, COOKIE_NAME } from "@/lib/jwt";
@@ -8,7 +8,7 @@ import { verifyToken, COOKIE_NAME } from "@/lib/jwt";
  * Menghapus/refund tiket milik user berdasarkan ID tiket.
  */
 export async function DELETE(
-  request: Request,
+  request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
